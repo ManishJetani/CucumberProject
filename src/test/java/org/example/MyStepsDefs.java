@@ -1,21 +1,26 @@
 package org.example;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class MyStepsDefs
 {   //calling class and creating object
     HomePage homePage = new HomePage();
-    RegisterPageDavid registerPageDavid = new RegisterPageDavid();
+    RegisterPage registerPage = new RegisterPage();
     RegistrationVerificationPage registrationVerificationPage = new RegistrationVerificationPage();
     NewOnlineStorePage newOnlineStorePage = new NewOnlineStorePage();
-    RegisterPageRishi registerPageRishi = new RegisterPageRishi();
     ElectronicsPage electronicsPage = new ElectronicsPage();
     CellPhonePage cellPhonePage = new CellPhonePage();
     ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
     CheckoutPage checkoutPage = new CheckoutPage();
     CheckoutCompletedPage checkoutCompletedPage = new CheckoutCompletedPage();
+    LoginPage loginPage = new LoginPage();
+
+
 
     @Given("^user is on registration page$")
     public void user_is_on_registration_page()
@@ -26,8 +31,8 @@ public class MyStepsDefs
     @When("^user entered all required details and click register button$")
     public void user_entered_all_required_details_and_click_register_button()
     {
-        registerPageDavid.verifyRegisterButtonLink();
-        registerPageDavid.enterRegistrationDetails();
+        registerPage.verifyRegisterButtonLink();
+        registerPage.enterRegistrationDetails();
     }
 
     @Then("^user should be able to see registration successful message$")
@@ -75,8 +80,8 @@ public class MyStepsDefs
     @When("^user entered all required fields and click register button$")
     public void user_entered_all_required_fields_and_click_register_button()
     {
-        registerPageRishi.verifyRegisterButtonLink();
-        registerPageRishi.enterPersonalDetails();
+        registerPage.verifyRegisterButtonLink();
+        registerPage.enterPersonalDetails();
     }
 
     @Then("^user should be able to see registration is successful message$")
@@ -96,7 +101,6 @@ public class MyStepsDefs
     {
         electronicsPage.cellPhoneSubCategory();
         cellPhonePage.verifyingCellPhoneURL();
-
     }
 
     @When("^user add product into basket and click on terms and condition and check out button$")
@@ -121,5 +125,23 @@ public class MyStepsDefs
     }
 
 
+    @Given("^user is already registered and on login page$")
+    public void userIsAlreadyRegisteredAndOnLoginPage()
+    {
+        homePage.clickOnLoginButton();
+    }
 
+
+    @When("^user type invalid \"([^\"]*)\" or invalid \"([^\"]*)\"$")
+    public void userTypeInvalidOrInvalid(String Email, String passWord)
+    {
+        loginPage.verifyCurrentURL();
+        loginPage.enterLoginDetails(Email,passWord);
+    }
+
+    @Then("^user should not be able to login successfully and should see \"([^\"]*)\"$")
+    public void userShouldNotBeAbleToLoginSuccessfullyAndShouldSee(String error_message)
+    {
+        loginPage.verifyErrorMessage(error_message);
+    }
 }

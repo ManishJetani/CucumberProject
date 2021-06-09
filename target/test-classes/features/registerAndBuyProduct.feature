@@ -1,5 +1,5 @@
 Feature: Registration and Buy Product
-  @test
+  @register_and_buy
   Scenario: User should be able to register and buy product successfully
     Given user is on registration page
     When user entered all required fields and click register button

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,6 +55,11 @@ public class Utils extends BasePage
     {
         Select select = new Select(driver.findElement(by));
         return select.getFirstSelectedOption().getText();
+    }
+    //verification method
+    public static void assertCurrentURL(String url)
+    {
+        Assert.assertTrue(driver.getCurrentUrl().equals(url));
     }
     //method for Thread.sleep
     public static void sleep(int time)

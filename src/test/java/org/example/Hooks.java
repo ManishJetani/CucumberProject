@@ -14,6 +14,7 @@ import static org.apache.commons.io.FileUtils.copyFile;
 public class Hooks extends Utils
 {   //calling class and creating object
     BrowserSelector browserSelector = new BrowserSelector();
+
     @Before
     public void openBrowser()
     {
@@ -41,7 +42,7 @@ public class Hooks extends Utils
             scenario.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
         }
         //close browser
-//        driver.quit();
+        driver.quit();
 
     }
 }

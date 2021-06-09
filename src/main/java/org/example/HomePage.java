@@ -8,11 +8,11 @@ import java.util.List;
 
 public class HomePage extends Utils
 {   LoadProperty loadProperty = new LoadProperty();
-    private By _clickOnRegister =  By.xpath("//a[text()='Register']");
+    private By _clickOnRegister =  By.cssSelector(".ico-register");
     private By _clickOnNewOnlieStoreTitle = By.cssSelector(".news-head:first-of-type>a");
     private By _currencyName = By.cssSelector("select#customerCurrency");
     private By _listOfPrice = By.xpath("//span[contains(@class,'price actual-price')]");
-    private By _electroincsCategory = By.cssSelector(".top-menu.notmobile>li:nth-of-type(2)>a");
+    private By _clickOnLoginButton = By.cssSelector(".ico-login");
 
     public void clickOnRegisterButton()
     {   //click on register button
@@ -59,9 +59,10 @@ public class HomePage extends Utils
     {   //select Euro currency
         selectFromDropdownByVisibleText(_currencyName,loadProperty.getProperty("currency"));
     }
-    public void electronicsCategory()
-    {   //click on electronics category
-        clickOnElement(_electroincsCategory);
+    public void clickOnLoginButton()
+    {   //click on login button
+        clickOnElement(_clickOnLoginButton);
     }
+
 
 }
