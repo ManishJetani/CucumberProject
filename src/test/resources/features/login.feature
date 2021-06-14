@@ -1,4 +1,4 @@
-@login
+@login @all
 Feature: Login fail when user enter invalid credentials
   If user enter invalid credentials, user should not be able to login successfully
 

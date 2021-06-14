@@ -17,10 +17,11 @@ public class BrowserSelector extends BasePage
     public static final String AUTOMATE_USERNAME = "maje_lA5jZm";
     public static final String AUTOMATE_ACCESS_KEY = "FSYCpM14ExtpshJx3jsy";
     public static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    public static final boolean browserStack = true;
+    public static final boolean browserStack = Boolean.parseBoolean(System.getProperty("browserStack"));
 
     //storing browser name
-    String browserName = loadProperty.getProperty("browser");
+//    String browserName = loadProperty.getProperty("browser");
+    String browserName = System.getProperty("browser1");
     DesiredCapabilities caps = new DesiredCapabilities();
 
     public void openSelectedBrowser() {

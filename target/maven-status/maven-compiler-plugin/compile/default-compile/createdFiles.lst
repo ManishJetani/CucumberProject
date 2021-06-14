@@ -1,0 +1,14 @@
+org\example\BrowserSelector.class
+org\example\BasePage.class
+org\example\HomePage.class
+org\example\CheckoutPage.class
+org\example\ElectronicsPage.class
+org\example\LoadProperty.class
+org\example\ShoppingCartPage.class
+org\example\CheckoutCompletedPage.class
+org\example\RegisterPage.class
+org\example\LoginPage.class
+org\example\NewOnlineStorePage.class
+org\example\Utils.class
+org\example\RegistrationVerificationPage.class
+org\example\CellPhonePage.class
